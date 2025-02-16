@@ -1,5 +1,5 @@
 #include "register_types.h"
-#include "spin_physics.h"
+#include "CustomGravity.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -7,16 +7,16 @@
 
 using namespace godot;
 
-// Function to initialize the SpinPhysics module
+// Function to initialize the CustomGravity module
 void initialize_spin_physics_module(ModuleInitializationLevel p_level) {
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
     }
 
-    GDREGISTER_CLASS(SpinPhysics);
+    GDREGISTER_CLASS(CustomGravity);
 }
 
-// Function to uninitialize the SpinPhysics module
+// Function to uninitialize the CustomGravity module
 void uninitialize_spin_physics_module(ModuleInitializationLevel p_level) {
     if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
         return;
@@ -24,7 +24,7 @@ void uninitialize_spin_physics_module(ModuleInitializationLevel p_level) {
 }
 
 extern "C" {
-// Entry point for the SpinPhysics library
+// Entry point for the CustomGravity library
 GDExtensionBool GDE_EXPORT spin_physics_library_init(GDExtensionInterfaceGetProcAddress p_get_proc_address, const GDExtensionClassLibraryPtr p_library, GDExtensionInitialization *r_initialization) {
     godot::GDExtensionBinding::InitObject init_obj(p_get_proc_address, p_library, r_initialization);
 

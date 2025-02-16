@@ -1,4 +1,4 @@
-This is the Assignment3 for Xueqi Cheng
+This is the Assignment 3 for Xueqi Cheng
 
 ## Introduction
 
@@ -17,9 +17,13 @@ The player can use the arrow keys to move the warrior. The player can jump by pr
 ## How to run the project
 
 1. Download the project from the repository, or clone it using git:
-``` git clone https://github.com/Vanderbilt-GameDev-2025/Assignment1-Xueqi-Cheng.git ```
+``` git clone https://github.com/Vanderbilt-GameDev-2025/Assignment3-Xueqi-Cheng.git ```
 2. Open the project in Godot.
+3. Delete the existing `godot-cpp` folder in the project.
+4. ``` git clone -b 4.3 https://github.com/godotengine/godot-cpp ```
+5. scons platform=<platform> where <platform> is your platform of choice.
 3. Click the play button on the top-right corner to run the project.
+
 
 ## Key Features
 

@@ -22,7 +22,7 @@ sources = Glob("src/*.cpp")
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
-        "game/bin/libspin_physics.{}.{}.framework/libspin_physics.{}.{}".format(
+        "game/bin/libCustomGravity.{}.{}.framework/libCustomGravity.{}.{}".format(
             env["platform"], env["target"], env["platform"], env["target"]
         ),
         source=sources,
@@ -30,17 +30,17 @@ if env["platform"] == "macos":
 elif env["platform"] == "ios":
     if env["ios_simulator"]:
         library = env.StaticLibrary(
-            "game/bin/libspin_physics.{}.{}.simulator.a".format(env["platform"], env["target"]),
+            "game/bin/libCustomGravity.{}.{}.simulator.a".format(env["platform"], env["target"]),
             source=sources,
         )
     else:
         library = env.StaticLibrary(
-            "game/bin/libspin_physics.{}.{}.a".format(env["platform"], env["target"]),
+            "game/bin/libCustomGravity.{}.{}.a".format(env["platform"], env["target"]),
             source=sources,
         )
 else:
     library = env.SharedLibrary(
-        "game/bin/libspin_physics{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "game/bin/libCustomGravity{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
 
