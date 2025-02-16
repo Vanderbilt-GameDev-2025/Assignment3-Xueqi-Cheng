@@ -1,0 +1,3 @@
+/Users/chengxueqi/Library/CloudStorage/Dropbox/Game_engine/HW3/build/CMakeFiles/godot-cpp.dir
+/Users/chengxueqi/Library/CloudStorage/Dropbox/Game_engine/HW3/build/CMakeFiles/edit_cache.dir
+/Users/chengxueqi/Library/CloudStorage/Dropbox/Game_engine/HW3/build/CMakeFiles/rebuild_cache.dir

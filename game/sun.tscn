@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dafa0slhivegu"]
+
+[ext_resource type="Texture2D" uid="uid://nwr0qr8bc5am" path="res://assets/sprites/sun.png" id="1_c0ap6"]
+
+[node name="sun" type="Node2D"]
+
+[node name="SpinPhysics" type="SpinPhysics" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpinPhysics"]
+position = Vector2(-1.52588e-05, 1)
+scale = Vector2(0.176529, 0.176529)
+texture = ExtResource("1_c0ap6")

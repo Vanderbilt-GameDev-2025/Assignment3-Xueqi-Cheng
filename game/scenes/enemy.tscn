@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://57qwqek1oubs"]
+
+[ext_resource type="Texture2D" uid="uid://c4lkh7gqfyuid" path="res://assets/sprites/bird.png" id="1_q2cy2"]
+[ext_resource type="PackedScene" uid="uid://3dta6p1stsj0" path="res://scenes/killzone.tscn" id="2_0ftmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpnly"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(0, 0, 408, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puhor"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(408, 0, 408, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw3o0"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(816, 0, 408, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vndjw"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(0, 408, 408, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc4e8"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(408, 408, 408, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwl5u"]
+atlas = ExtResource("1_q2cy2")
+region = Rect2(816, 408, 408, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdyqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpnly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puhor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw3o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vndjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc4e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwl5u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b7hu"]
+radius = 165.048
+
+[node name="enemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_bdyqc")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.760929
+
+[node name="killzone" parent="AnimatedSprite2D" instance=ExtResource("2_0ftmu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/killzone"]
+shape = SubResource("CircleShape2D_8b7hu")

@@ -1,0 +1,181 @@
+[gd_scene load_steps=18 format=3 uid="uid://dlxkkkgtc1ewl"]
+
+[ext_resource type="PackedScene" uid="uid://c74byru8om1gr" path="res://scenes/player.tscn" id="1_kjbe4"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="2_a2wxk"]
+[ext_resource type="PackedScene" uid="uid://rggqj75jdtlw" path="res://scenes/platform.tscn" id="4_pbosq"]
+[ext_resource type="PackedScene" uid="uid://b44p6iax0pnjq" path="res://scenes/coin.tscn" id="5_b4lrc"]
+[ext_resource type="PackedScene" uid="uid://3dta6p1stsj0" path="res://scenes/killzone.tscn" id="5_odksy"]
+[ext_resource type="Script" path="res://scenes/gamemanager.gd" id="6_dgwry"]
+[ext_resource type="PackedScene" uid="uid://dgd7xtpw2j5cs" path="res://scenes/label.tscn" id="7_kt33r"]
+[ext_resource type="AudioStream" uid="uid://rmvmdcf4f27x" path="res://assets/music/music.mp3" id="8_74p2d"]
+[ext_resource type="PackedScene" uid="uid://57qwqek1oubs" path="res://scenes/enemy.tscn" id="9_5obee"]
+[ext_resource type="PackedScene" uid="uid://dafa0slhivegu" path="res://sun.tscn" id="10_c3gir"]
+
+[sub_resource type="Animation" id="Animation_m7myi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(931, 197)]
+}
+
+[sub_resource type="Animation" id="Animation_m3lgi"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(931, 197), Vector2(1138, 197)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1467w"]
+_data = {
+"RESET": SubResource("Animation_m7myi"),
+"move": SubResource("Animation_m3lgi")
+}
+
+[sub_resource type="Animation" id="Animation_y4n0i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1367, 49)]
+}
+
+[sub_resource type="Animation" id="Animation_vxbjo"]
+resource_name = "move2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1367, 49), Vector2(1065, 49)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u0ph2"]
+_data = {
+"RESET": SubResource("Animation_y4n0i"),
+"move2": SubResource("Animation_vxbjo")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01pht"]
+distance = -281.0
+
+[node name="Game" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_kjbe4")]
+unique_name_in_owner = true
+position = Vector2(-0.845772, 0.295448)
+script = ExtResource("2_a2wxk")
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+limit_bottom = 400
+position_smoothing_enabled = true
+
+[node name="platform" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(749, 49)
+
+[node name="platform2" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(305, -46)
+
+[node name="platform3" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(433, -46)
+
+[node name="platform4" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(931, 197)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform4"]
+libraries = {
+"": SubResource("AnimationLibrary_1467w")
+}
+autoplay = "move"
+
+[node name="Area2D" parent="." instance=ExtResource("5_b4lrc")]
+position = Vector2(297, -141)
+
+[node name="platform5" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(8, 66)
+
+[node name="Area2D2" parent="." instance=ExtResource("5_b4lrc")]
+position = Vector2(409, -140)
+
+[node name="Area2D3" parent="." instance=ExtResource("5_b4lrc")]
+position = Vector2(931, 109)
+
+[node name="platform6" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(1367, 49)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform6"]
+libraries = {
+"": SubResource("AnimationLibrary_u0ph2")
+}
+autoplay = "move2"
+
+[node name="killzone" parent="." instance=ExtResource("5_odksy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_01pht")
+
+[node name="gamemanager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_dgwry")
+
+[node name="Label" parent="gamemanager" instance=ExtResource("7_kt33r")]
+offset_left = 1531.0
+offset_top = -177.0
+offset_right = 2048.0
+offset_bottom = -76.0
+theme_override_font_sizes/font_size = 50
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_74p2d")
+autoplay = true
+bus = &"music"
+
+[node name="enemy" parent="." instance=ExtResource("9_5obee")]
+position = Vector2(368, -267)
+
+[node name="platform7" parent="." instance=ExtResource("4_pbosq")]
+position = Vector2(1522, 134)
+
+[node name="platform" parent="platform7" instance=ExtResource("4_pbosq")]
+position = Vector2(132, 0)
+
+[node name="platform2" parent="platform7" instance=ExtResource("4_pbosq")]
+position = Vector2(264, -1)
+
+[node name="enemy2" parent="." instance=ExtResource("9_5obee")]
+position = Vector2(1525, 22)
+
+[node name="Area2D4" parent="." instance=ExtResource("5_b4lrc")]
+position = Vector2(1720, 27)
+
+[node name="sun" parent="." instance=ExtResource("10_c3gir")]
+position = Vector2(1109, -200)
