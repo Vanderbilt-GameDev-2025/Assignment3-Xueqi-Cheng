@@ -21,8 +21,8 @@ The player can use the arrow keys to move the warrior. The player can jump by pr
 2. Open the project in Godot.
 3. Delete the existing `godot-cpp` folder in the project.
 4. ``` git clone -b 4.3 https://github.com/godotengine/godot-cpp ```
-5. ``` scons platform=<platform>``` where <platform> is your platform of choice.
-3. Click the play button on the top-right corner to run the project.
+5. ``` scons platform=<platform>``` where <platform> is your platform of choice. For macos with apple silicon, use ``` scons platform=macos arch=arm64```
+6. Click the play button on the top-right corner to run the project.
 
 
 ## Key Features
@@ -30,9 +30,6 @@ The player can use the arrow keys to move the warrior. The player can jump by pr
 1. Player locomotion: The player can move the warrior using the arrow keys and jump using the space key.
 2. Collision detection: The player will die if it touches the enemy or falls off the platform.
 3. Scoring: The player can collect coins to increase the score, the final score is shown on the screen.
-4. GDExtension: The project uses GDExtension to "SpinPhysicis" to rotate the Node2D, and it is used to create a spinning sun.
-5. [Extra Credit] There is background music in the game. The music is played when the game starts and stops when the player dies.
-6. [Extra Credit] NPCs: There are enemies (birds) in the game, and the player should avoid touching them.
 
 ## Video
 
