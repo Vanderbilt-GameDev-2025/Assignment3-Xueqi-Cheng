@@ -21,7 +21,7 @@ The player can use the arrow keys to move the warrior. The player can jump by pr
 2. Open the project in Godot.
 3. Delete the existing `godot-cpp` folder in the project.
 4. ``` git clone -b 4.3 https://github.com/godotengine/godot-cpp ```
-5. scons platform=<platform> where <platform> is your platform of choice.
+5. ``` scons platform=<platform>``` where <platform> is your platform of choice.
 3. Click the play button on the top-right corner to run the project.
 
 
