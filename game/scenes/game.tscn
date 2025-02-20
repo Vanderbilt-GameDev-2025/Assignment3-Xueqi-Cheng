@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlxkkkgtc1ewl"]
+[gd_scene load_steps=18 format=3 uid="uid://dlxkkkgtc1ewl"]
 
 [ext_resource type="PackedScene" uid="uid://c74byru8om1gr" path="res://scenes/player.tscn" id="1_kjbe4"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_a2wxk"]
@@ -87,6 +87,9 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01pht"]
 distance = -281.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahu2"]
+size = Vector2(16, 9)
+
 [node name="Game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_kjbe4")]
@@ -99,7 +102,7 @@ limit_bottom = 400
 position_smoothing_enabled = true
 
 [node name="platform" parent="." instance=ExtResource("4_pbosq")]
-position = Vector2(749, 49)
+position = Vector2(736, 60)
 
 [node name="platform2" parent="." instance=ExtResource("4_pbosq")]
 position = Vector2(305, -46)
@@ -175,3 +178,11 @@ position = Vector2(1525, 22)
 
 [node name="Area2D4" parent="." instance=ExtResource("5_b4lrc")]
 position = Vector2(1720, 27)
+
+[node name="CustomGravity" type="CustomGravity" parent="."]
+gravity_strength = 20.0
+gravity_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomGravity"]
+position = Vector2(737, 22)
+shape = SubResource("RectangleShape2D_bahu2")
