@@ -30,7 +30,7 @@ The player can use the arrow keys to move the warrior. The player can jump by pr
 1. Player locomotion: The player can move the warrior using the arrow keys and jump using the space key.
 2. Collision detection: The player will die if it touches the enemy or falls off the platform.
 3. Scoring: The player can collect coins to increase the score, the final score is shown on the screen.
-4. Include a custom gravity module with three gravity modes
+4. Include a custom gravity module with three gravity modes. The third platform's gravity specially set is it actually performs like a trampoline. Let's try it!
 
 ## Video
 
