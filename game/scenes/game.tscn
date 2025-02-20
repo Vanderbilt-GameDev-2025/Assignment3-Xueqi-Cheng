@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlxkkkgtc1ewl"]
+[gd_scene load_steps=17 format=3 uid="uid://dlxkkkgtc1ewl"]
 
 [ext_resource type="PackedScene" uid="uid://c74byru8om1gr" path="res://scenes/player.tscn" id="1_kjbe4"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_a2wxk"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dgd7xtpw2j5cs" path="res://scenes/label.tscn" id="7_kt33r"]
 [ext_resource type="AudioStream" uid="uid://rmvmdcf4f27x" path="res://assets/music/music.mp3" id="8_74p2d"]
 [ext_resource type="PackedScene" uid="uid://57qwqek1oubs" path="res://scenes/enemy.tscn" id="9_5obee"]
-[ext_resource type="PackedScene" uid="uid://dafa0slhivegu" path="res://sun.tscn" id="10_c3gir"]
 
 [sub_resource type="Animation" id="Animation_m7myi"]
 length = 0.001
@@ -176,6 +175,3 @@ position = Vector2(1525, 22)
 
 [node name="Area2D4" parent="." instance=ExtResource("5_b4lrc")]
 position = Vector2(1720, 27)
-
-[node name="sun" parent="." instance=ExtResource("10_c3gir")]
-position = Vector2(1109, -200)
